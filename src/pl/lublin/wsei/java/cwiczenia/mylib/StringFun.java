@@ -4,20 +4,30 @@ import org.apache.commons.lang3.StringUtils;
 
 public class StringFun {
 
-    public static boolean isPalindrome(String word){
+    public static boolean isPalindrome(String word) {
 
-return true;
+        return true;
     }
 
 
-    public static String camelize(String word) {
-        String output = "";
-        String[] words = word.split(" ");
+    public static String decamelize(String sentence) {
 
-        for(int i=0; i < words.length; i++){
-            words[i] = StringUtils.capitalize(words[i]);
-            output = StringUtils.join(words);
+        sentence = sentence.substring(0, 1).toLowerCase() + sentence.substring(1);
+
+        int dlugosc = sentence.length();
+        char charSentence[] = sentence.toCharArray();
+
+        String decamelizeSentence = "";
+
+        for (int i = 0; i < dlugosc; i++) {
+            if (Character.isUpperCase(charSentence[i])) {
+                decamelizeSentence += " ";
+            }
+            decamelizeSentence += charSentence[i];
+
         }
-        return output;
+        decamelizeSentence = decamelizeSentence.substring(0, 1).toUpperCase() + decamelizeSentence.substring(1);
+        return decamelizeSentence;
+
     }
 }
