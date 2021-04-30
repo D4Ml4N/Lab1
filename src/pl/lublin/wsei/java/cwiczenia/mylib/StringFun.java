@@ -1,28 +1,23 @@
 package pl.lublin.wsei.java.cwiczenia.mylib;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class StringFun {
+
     public static boolean isPalindrome(String word){
+
 return true;
     }
 
-    public static String anarchize(String word){
-        StringBuilder builder = new StringBuilder();
 
-        boolean nextCase = Character.isUpperCase(word.charAt(0));
-        nextCase = !nextCase;
+    public static String camelize(String word) {
+        String output = "";
+        String[] words = word.split(" ");
 
-        builder.append(word.charAt(0));
-
-        for(int i = 1; i < word.length(); i++){
-            if(nextCase){
-                builder.append(Character.toUpperCase(word.charAt(i)));
-            }else{
-                builder.append(Character.toLowerCase(word.charAt(i)));
-            }
-
-            nextCase = !nextCase;
+        for(int i=0; i < words.length; i++){
+            words[i] = StringUtils.capitalize(words[i]);
+            output = StringUtils.join(words);
         }
-
-        return builder.toString();
+        return output;
     }
 }
