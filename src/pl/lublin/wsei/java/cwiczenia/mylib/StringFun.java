@@ -2,32 +2,31 @@ package pl.lublin.wsei.java.cwiczenia.mylib;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Random;
+
 public class StringFun {
 
-    public static boolean isPalindrome(String word) {
+    public static Object Shuffle(String sentence) {
+        Random random = new Random();
 
-        return true;
-    }
+        int lenght;
+        int lenght2 = sentence.length();
+        char charSentence[];
+        String shuffledSentence = "";
+        int randomizedNumber;
 
+        for (int i = 0; i < lenght2; i++) {
+            lenght = sentence.length();
+            randomizedNumber = random.nextInt(lenght);
+            if (randomizedNumber == 0) randomizedNumber++;
+            charSentence = sentence.toCharArray();
 
-    public static String decamelize(String sentence) {
+            shuffledSentence = shuffledSentence + charSentence[randomizedNumber - 1];
 
-        sentence = sentence.substring(0, 1).toLowerCase() + sentence.substring(1);
+            sentence = sentence.substring(0, randomizedNumber - 1) + sentence.substring(randomizedNumber, lenght);
 
-        int dlugosc = sentence.length();
-        char charSentence[] = sentence.toCharArray();
-
-        String decamelizeSentence = "";
-
-        for (int i = 0; i < dlugosc; i++) {
-            if (Character.isUpperCase(charSentence[i])) {
-                decamelizeSentence += " ";
-            }
-            decamelizeSentence += charSentence[i];
-
+            return shuffledSentence;
         }
-        decamelizeSentence = decamelizeSentence.substring(0, 1).toUpperCase() + decamelizeSentence.substring(1);
-        return decamelizeSentence;
-
+        return null;
     }
 }

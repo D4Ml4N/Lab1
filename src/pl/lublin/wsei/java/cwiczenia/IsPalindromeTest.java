@@ -8,15 +8,17 @@ import java.util.Scanner;
 public class IsPalindromeTest {
 
     public static void main(String[] args){
-        Scanner scn = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
         do {
-            System.out.print("Podaj tekst do sprawdzenia (0, jak Ci się znudzi): ");
-            String tekst = scn.next();
-            if (tekst.equals("0")) break;
-            System.out.print("Tekst: " + tekst + " " +
-                    (StringFun.isPalindrome(tekst) ? "" : "nie ") +
-                    "jest palindromem");
-        } while (true);
+            System.out.print("\nWprowadź tekst do wylosowania litery," +
+                    "aby zakonczyć wprowadź - \"0\"");
+            String sentence = scanner.nextLine();
+            if (sentence.equals("0")) break;
+            System.out.print(StringFun.Shuffle(sentence));
+        }
+        while (true);
+        return;
 
     }
 }
