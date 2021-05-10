@@ -1,10 +1,12 @@
-package pl.lublin.wsei.java.cwiczenia; // deklaracja pakietu package lab1
-import pl.lublin.wsei.java.cwiczenia.mylib.Account;
+package pl.lublin.wsei.java.cwiczenia;
+import static pl.lublin.wsei.java.cwiczenia.StrongPasswordGenerator.Generate;
 
 public class Main {
 
     public static void main(String[] args) {
-        Account.main();
+
+            Generate(16, true,true,true,true,"!@#$%^&*()");
+            System.out.print("\n");
     }
 }
 
